@@ -1,26 +1,34 @@
-// const path=require('path');
-// const express = require('express');
+const path = require('path');
+const express = require('express');
 
-// const app = express();
-// //relative path nhi dena absolute dena hai
-// // console.log(__dirname);
+const app = express();
+//relative path nhi dena absolute dena hai
+// console.log(__dirname);
 
-// const staticPath=path.join(__dirname, "../public");
-
+const staticPath = path.join(__dirname, '../public');
 
 // //builtin middleware
+
+app.set('view engine', 'hbs');
+
 // app.use(express.static(staticPath));
-// app.get('/', (req, res) => {
-//   res.send('hello from express123456');
-// }); //get(root,callback)  CALLBACK functions have firther 2 parameters req,res
+
+//template engine
+app.get('', (req, res) => {
+  res.render('index');
+});
+
+app.get('/', (req, res) => {
+  res.send('hello from express123456');
+}); //get(root,callback)  CALLBACK functions have firther 2 parameters req,res
 
 // app.get('/about', (req, res) => {
 //   res.send('hello from ABOUT');
 // });
 
-// app.listen(8000, () => {
-//   console.log('listening on port at 8000');
-// });
+app.listen(8000, () => {
+  console.log('listening on port at 8000');
+});
 
 // // let express = require('express');
 // // let app = express();
@@ -35,5 +43,3 @@
 // // app.listen(3001, () => {
 // //   console.log('hi server is connected');
 // // });
-
-
