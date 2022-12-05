@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+// const { hasSubscribers } = require('diagnostics_channel');
 
 const app = express();
 //relative path nhi dena absolute dena hai
@@ -7,12 +8,13 @@ const app = express();
 
 const staticPath = path.join(__dirname, '../public');
 const templatePath = path.join(__dirname, '../templates');
-
+const partialsPath = path.join(__dirname, '../templates/partials');
 // //builtin middleware
 
 app.set('view engine', 'hbs');
 app.set('views', templatePath);
-// app.use(express.static(staticPath));
+hbs.registerPartials(partialsPath);
+app.use(express.static(staticPath));
 
 //template engine
 app.get('', (req, res) => {
