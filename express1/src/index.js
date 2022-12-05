@@ -6,12 +6,12 @@ const app = express();
 // console.log(__dirname);
 
 const staticPath = path.join(__dirname, '../public');
-const templatePath=path.join(__dirname,"../templates")
+const templatePath = path.join(__dirname, '../templates');
 
 // //builtin middleware
 
 app.set('view engine', 'hbs');
-app.set('views',templatePath);
+app.set('views', templatePath);
 // app.use(express.static(staticPath));
 
 //template engine
@@ -23,9 +23,9 @@ app.get('/', (req, res) => {
   res.send('hello from express123456');
 }); //get(root,callback)  CALLBACK functions have firther 2 parameters req,res
 
-// app.get('/about', (req, res) => {
-//   res.send('hello from ABOUT');
-// });
+app.get('/about', (req, res) => {
+  res.render('about');
+});
 
 app.listen(8000, () => {
   console.log('listening on port at 8000');
