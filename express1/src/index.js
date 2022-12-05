@@ -6,11 +6,12 @@ const app = express();
 // console.log(__dirname);
 
 const staticPath = path.join(__dirname, '../public');
+const templatePath=path.join(__dirname,"../templates")
 
 // //builtin middleware
 
 app.set('view engine', 'hbs');
-
+app.set('views',templatePath);
 // app.use(express.static(staticPath));
 
 //template engine
